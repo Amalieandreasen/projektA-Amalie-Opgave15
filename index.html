@@ -4,20 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="descripton" content="" />
-    <title>Document</title>
+    <title>Kontaktliste</title>
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="./assets/app.js" defer></script>
-  </head>
   <body>
     <!-- Opgave 15: Kontaktliste (adressebog) Byg en kontaktliste (en simpel adressebog) som webapplikation. Tillad brugeren at tilføje nye kontakter ved at indtaste fx navn, telefonnummer og email i en formular. Når en kontakt tilføjes, skal den gemmes i en liste (array) af kontakt-objekter. Vis altid en opdateret liste over alle kontakter på siden, f.eks. i en tabel eller listeform. Implementér desuden funktionalitet til at sortere kontakterne (f.eks. alfabetisk efter navn). Gør det også muligt at slette kontakter fra listen igen (f.eks. med en “Slet” knap ud for hver kontakt). -->
     <main>
+      <h1>Kontaktliste</h1>
       <form action="" class="contactForm">
+        <div>
         <label for="">Navn</label>
         <input type="text" class="name" required />
+        </div>
+        <div>
         <label for="">Telefonnummer</label>
         <input type="tel" class="phone" required />
+        </div>
+        <div>
         <label for="">E-mail</label>
         <input type="email" class="mail" required />
+        </div>
         <button type="submit">Tilføj kontakt</button>
       </form>
       <div class="controls">
@@ -28,7 +34,17 @@
           <option value="" class="sortMail">E-mail</option>
         </select>
       </div>
-      <ul class="contactList"></ul>
+      <table class="contactTable">
+    <thead>
+      <tr>
+        <th>Navn</th>
+        <th>Telefonnummer</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody class="contactList">
+    </tbody>
+  </table>
     </main>
   </body>
 </html>

@@ -30,20 +30,8 @@ class Kontakt {
         this.email = email;
     }
 
-    show(){
-        return `Navn: ${this.navn} Telefonnummer: ${this.telefonummer} E-mail: ${this.email}`;
-    }
 }
 
-// Eventlisteners
-form.addEventListener("submit", function (event){
-    event.preventDefault();
-
-    let newContact = new Kontakt(navn.value, telefonummer.value, email.value);
-    contactArray.push(newContact);
-    form.reset();
-    showList();
-})
 
 // funktioner
 function deleteContact(){
@@ -56,16 +44,30 @@ function showList(){
     ul.innerHTML = "";
     
     for(let i = 0; i < contactArray.length; i++){
-        const p = document.createElement("p");
-        const span = document.createElement("span");
+        const row = document.createElement("tr");
 
-        span.innerHTML ="&#x1F5D1;"; 
-        span.id = i;
-        span.addEventListener("click", deleteContact);
+    const nameTd = document.createElement("td");
+    nameTd.textContent = contactArray[i].navn;
 
-        p.textContent = contactArray[i].show();
-        p.appendChild(span);
-        ul.appendChild(p);
+    const phoneTd = document.createElement("td");
+    phoneTd.textContent = contactArray[i].telefonummer;
+
+    const mailTd = document.createElement("td");
+    mailTd.textContent = contactArray[i].email;
+
+    const actionTd = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "&#x1F5D1;";
+    deleteBtn.id = i;
+    deleteBtn.addEventListener("click", deleteContact);
+    actionTd.appendChild(deleteBtn);
+
+
+    row.appendChild(nameTd);
+    row.appendChild(phoneTd);
+    row.appendChild(mailTd);
+    row.appendChild(actionTd);
+    ul.appendChild(row);
     }
 }
 
@@ -78,6 +80,16 @@ function sortAlfabetic(x){
         return 0;
     })
 }
+
+// Eventlisteners
+form.addEventListener("submit", function (event){
+    event.preventDefault();
+
+    let newContact = new Kontakt(navn.value, telefonummer.value, email.value);
+    contactArray.push(newContact);
+    form.reset();
+    showList();
+})
 
 document.querySelector(".sortName").addEventListener("click", function(){
     sortAlfabetic("navn");
