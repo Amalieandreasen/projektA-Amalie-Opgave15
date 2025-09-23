@@ -52,3 +52,50 @@ ul p{
     flex-direction: column;
 }
 
+ td{
+    border: 1px solid black;
+}
+
+form button{
+   background-color: #eed9c4;
+   border: none;
+   padding: 0.5rem;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+form button:hover{
+    background-color:#c7b7a6 ;
+}
+
+@media (min-width: 1024px){
+    *{
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+
+    .contactForm{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    main{
+        align-items: baseline;
+    }
+
+    thead tr{
+        display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    gap: 10rem;
+    margin-top: 1rem;
+    }
+
+    form button{
+        margin-top: 1rem;
+    }
+
+}

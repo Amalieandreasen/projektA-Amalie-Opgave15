@@ -72,13 +72,9 @@ function showList(){
 }
 
 function sortAlfabetic(x){
-    contactArray.sort((a,b) =>{
-        const ap = a[x].toLowerCase();
-        const bp = b[x].toLowerCase();
-        if (ap > bp) return 1;
-        if(ap < bp) return -1;
-        return 0;
-    })
+    contactArray.sort((a,b) => {
+        return a[x].localeCompare(b[x], 'da', { sensitivity: 'base' });
+    });
 }
 
 // Eventlisteners
@@ -91,17 +87,13 @@ form.addEventListener("submit", function (event){
     showList();
 })
 
-document.querySelector(".sortName").addEventListener("click", function(){
-    sortAlfabetic("navn");
-    showList()
-})
-
-document.querySelector(".sortMail").addEventListener("click", function(){
-    sortAlfabetic("email");
-    showList()
-})
-
-document.querySelector(".sortPhone").addEventListener("click", function(){
-    contactArray.sort((a,b) => a.telefonummer - b.telefonummer);
+select.addEventListener("change", function(){
+    if(this.value === "navn"){
+        sortAlfabetic("navn");
+    } else if (this.value === "email"){
+        sortAlfabetic("email");
+    } else if(this.value === "telefonnummer"){
+        contactArray.sort((a,b) => Number(a.telefonummer) - Number(b.telefonummer))
+    }
     showList()
 })

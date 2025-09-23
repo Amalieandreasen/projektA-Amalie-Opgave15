@@ -27,11 +27,12 @@
         <button type="submit">Tilføj kontakt</button>
       </form>
       <div class="controls">
-        <label for="sort">Sorter efter</label>
+        <label for="sort">Sorter</label>
         <select name="" id="sort">
-          <option value="" class="sortName">Navn</option>
-          <option value="" class="sortPhone">Telefonnummer</option>
-          <option value="" class="sortMail">E-mail</option>
+           <option value="" disabled selected hidden>Vælg mulighed</option>
+          <option value="navn" class="sortName">Navn</option>
+          <option value="telefonnummer" class="sortPhone">Telefonnummer</option>
+          <option value="email" class="sortMail">E-mail</option>
         </select>
       </div>
       <table class="contactTable">
