@@ -54,18 +54,18 @@ function showList(){
     const mailTd = document.createElement("td");
     mailTd.textContent = contactArray[i].email;
 
-    const actionTd = document.createElement("td");
+    const deleteTd = document.createElement("td");
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "&#x1F5D1;";
     deleteBtn.id = i;
     deleteBtn.addEventListener("click", deleteContact);
-    actionTd.appendChild(deleteBtn);
+    deleteTd.appendChild(deleteBtn);
 
 
     row.appendChild(nameTd);
     row.appendChild(phoneTd);
     row.appendChild(mailTd);
-    row.appendChild(actionTd);
+    row.appendChild(deleteTd);
     tbody.appendChild(row);
     }
 }
@@ -94,11 +94,11 @@ form.addEventListener("submit", function (event){
 
     // hvis ikke det matcher alerter beskeden
     if(!phoneRegex.test(telefonnummer.value)){
-        alert("ugyldigt telefonnummer. skriv 8 cifre")
+        alert("ugyldigt telefonnummer. skriv 8 cifre");
         return;
     }
     if(!mailRegex.test(email.value)){
-        alert("ugyldig email")
+        alert("ugyldig email");
         return;
     }
 
