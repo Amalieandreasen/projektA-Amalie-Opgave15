@@ -73,7 +73,7 @@ function showList(){
 // funktion til at sortere alfabetisk og skal bruges til navn og email
 // sort bruges til at ændre rækkefølgen i et array
 // jeg har brugt localcompare i compare funktionen da det er case sensititvt og kan tage dansk bogstaver med. sammenligner to tekststrenge ift alfabetisk rækkefølge
-function sortAlfabetic(x){
+function sortAlphabetic(x){
     // a,b = to kontaktobjekter
     contactArray.sort((a,b) => {
         return a[x].localeCompare(b[x], 'da', { sensitivity: 'base' });
@@ -102,7 +102,7 @@ form.addEventListener("submit", function (event){
         return;
     }
 
-    // pusher objektet fra vores klasse til arryet
+    // pusher objektet fra vores klasse til arrayet
     let newContact = new Kontakt(navn.value, telefonnummer.value, email.value);
     contactArray.push(newContact);
     form.reset();
@@ -114,9 +114,9 @@ form.addEventListener("submit", function (event){
 // forskellige if statements alt efter hvilken kategori brugeren vælger
 select.addEventListener("change", function(){
     if(this.value === "navn"){
-        sortAlfabetic("navn");
+        sortAlphabetic("navn");
     } else if (this.value === "email"){
-        sortAlfabetic("email");
+        sortAlphabetic("email");
     } else if(this.value === "telefonnummer"){
         contactArray.sort((a,b) => Number(a.telefonnummer) - Number(b.telefonnummer));
     }
