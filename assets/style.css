@@ -52,10 +52,6 @@ ul p{
     flex-direction: column;
 }
 
- td{
-    border: 1px solid black;
-}
-
 form button{
    background-color: #eed9c4;
    border: none;
@@ -67,6 +63,38 @@ form button{
 form button:hover{
     background-color:#c7b7a6 ;
 }
+
+.contactTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contactTable th,
+.contactTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.contactTable th {
+  background-color: #f4f4f4;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.contactList button{
+    background-color: rgb(241, 216, 216);
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+.contactList tr td:nth-of-type(4){
+    border: none;
+}
+
+/* desktop */
 
 @media (min-width: 1024px){
     *{
@@ -90,9 +118,24 @@ form button:hover{
         display: flex;
     align-items: baseline;
     flex-direction: row;
-    gap: 10rem;
     margin-top: 1rem;
     }
+
+     thead tr th{
+        width: 330px;
+     }
+
+     .contactList tr td:nth-of-type(1),  .contactList tr td:nth-of-type(2),  .contactList tr td:nth-of-type(3){
+         width: 330px;
+     }
+
+    .contactList tr{
+     display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
 
     form button{
         margin-top: 1rem;
